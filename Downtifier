@@ -1,0 +1,35 @@
+import smtplib
+import urllib
+import os
+import time
+
+emailAddr = "test@gmail.com"
+password = "hunter1"
+
+def sendSMS(msg, toAddr):
+
+    emailServer = smtplib.SMTP('smtp.gmail.com:587')
+    emailServer.starttls()
+    emailServer.login(emailAddr, password)
+    emailServer.sendmail(emailAddr, toAddr, msg)
+    emailServer.quit()
+
+def downloadNotifier(file, toAddr, msg):
+
+    timeDif = 1
+
+    while timeDif != 0:
+        currTime = os.stat(file).st_mtime
+        time.sleep(10)
+        timeDif = os.stat(file).st_mtime - time1
+
+    sendSMS("File is done", "7785494062@txt.bell.ca")
+    print "Message Sent"
+
+def main():
+    toAddr = "test"
+    msg = "hello world"
+    downloadNotifier(file, toAddr, msg)
+
+if __name__ == '__main__':
+    main()
