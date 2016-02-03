@@ -23,11 +23,11 @@ def downloadNotifier(file, toAddr, msg):
         time.sleep(10)
         timeDif = os.stat(file).st_mtime - time1
 
-    sendSMS("File is done", "7785494062@txt.bell.ca")
+    sendSMS(msg, toAddr)
     print "Message Sent"
 
 def main():
-    toAddr = "test"
+    toAddr = "5555555555@txt.phone.com"
     msg = "hello world"
     downloadNotifier(file, toAddr, msg)
 
